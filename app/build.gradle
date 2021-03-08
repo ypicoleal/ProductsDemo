@@ -30,6 +30,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    viewBinding {
+        enabled true
+    }
 }
 
 ext {
@@ -61,6 +65,7 @@ dependencies {
 
     // Testing-only dependencies
     implementation 'androidx.test.espresso:espresso-idling-resource:3.3.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     androidTestImplementation 'androidx.annotation:annotation:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation 'androidx.test.espresso:espresso-intents:3.3.0'
