@@ -25,7 +25,8 @@
                 android:scaleType="centerInside"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintDimensionRatio="H,1:1"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -54,8 +55,8 @@
                 android:gravity="center_vertical"
                 android:layout_margin="8dp"
                 android:drawablePadding="8dp"
-                android:text="Enviar a Yamid Pico Leal"
-                android:drawableStart="@drawable/ic_location"/>
+                android:text="@string/mock_address"
+                app:drawableStartCompat="@drawable/ic_location" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -177,7 +178,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:fontFamily="@font/proximanova_regular"
-                android:text="Información del producto"
+                android:text="@string/product_attributes_title"
                 android:textColor="@color/black_80"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -214,7 +215,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:fontFamily="@font/proximanova_regular"
-                android:text="Descripción"
+                android:text="@string/product_item_description_title"
                 android:textColor="@color/black_80"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
