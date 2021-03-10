@@ -12,9 +12,15 @@ class ProductRepositoryImpl(
         private val responseHandler: ResponseHandler
 ): ProductRepository {
 
-    override suspend fun getHelpCenterData(productId: String): ResultWrapper<ProductItem> {
+    override suspend fun getProductItem(productId: String): ResultWrapper<ProductItem> {
         return responseHandler {
             client.getProductItem(productId).toProductItem()
+        }
+    }
+
+    override suspend fun getProductDescription(productId: String): ResultWrapper<String> {
+        return responseHandler {
+            client.getProductDescription(productId).first().text
         }
     }
 }

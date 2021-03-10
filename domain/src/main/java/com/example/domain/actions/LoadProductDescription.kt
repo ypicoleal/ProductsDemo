@@ -1,19 +1,18 @@
 package com.example.domain.actions
 
-import com.example.domain.model.ProductItem
 import com.example.domain.model.ResultWrapper
 import com.example.domain.repositories.ProductRepository
 
-class LoadProductItem(private val productRepository: ProductRepository) {
+class LoadProductDescription(private val productRepository: ProductRepository) {
 
     sealed class Result {
-        data class Success(val productItem: ProductItem) : Result()
+        data class Success(val description: String) : Result()
         object NetworkError : Result()
         object Error : Result()
     }
 
     suspend operator fun invoke(productId: String): Result {
-        return when (val resultWrapper = productRepository.getProductItem(productId)) {
+        return when (val resultWrapper = productRepository.getProductDescription(productId)) {
             is ResultWrapper.Success -> {
                 Result.Success(resultWrapper.value)
             }

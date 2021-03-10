@@ -1,5 +1,6 @@
 package com.example.infrastructure.network
 
+import android.util.Log
 import com.example.domain.model.ResultWrapper
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
@@ -13,6 +14,7 @@ class ResponseHandler(private val dispatcher: CoroutineDispatcher) {
             try {
                 ResultWrapper.Success(apiCall.invoke())
             } catch (throwable: Throwable) {
+                Log.e(javaClass.simpleName, "Response Error", throwable)
                 when (throwable) {
                     is IOException ->  ResultWrapper.NetworkError
                     is HttpException -> {
