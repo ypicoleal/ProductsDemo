@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.productsdemo.databinding.FragmentSearchBinding
 import com.example.productsdemo.search.groupieviews.SearchItemView
 import com.xwray.groupie.GroupAdapter
@@ -20,6 +21,8 @@ class SearchFragment : Fragment() {
 
     private val binding by lazy { FragmentSearchBinding.inflate(layoutInflater) }
     private val groupAdapter = GroupAdapter<GroupieViewHolder>()
+
+    private val args: SearchFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,9 +42,10 @@ class SearchFragment : Fragment() {
         setNavigation()
         observeViewModel()
 
-        binding.search.setOnEditorActionListener { view, actionId, _ ->
+        binding.search.setOnEditorActionListener { searchView, actionId, _ ->
+            val site = args.siteId
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                viewModel.searchProducts(view.text.toString(), "MCO")
+                viewModel.searchProducts(searchView.text.toString(), site ?: "")
             }
             false
         }
