@@ -9,4 +9,7 @@
     <string name="search_hint">Estoy buscando…</string>
     <string name="product_subtitle">%1$s | %2$d</string>
     <string name="product_image_count">%1$d/%2$d</string>
+    <string name="error_title">Error</string>
+    <string name="error_description">Hubo un error al cargar los datos</string>
+    <string name="close">cerrar</string>
 </resources>

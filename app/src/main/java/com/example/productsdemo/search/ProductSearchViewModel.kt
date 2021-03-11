@@ -10,15 +10,15 @@ import kotlinx.coroutines.launch
 class ProductSearchViewModel(private val loadProductSearch: LoadProductSearch) : ViewModel() {
 
     val data = MutableLiveData<List<ProductSearchItem>>()
-    val errorData = MutableLiveData<String>()
+    val errorData = MutableLiveData<Boolean>()
 
     fun searchProducts(query: String, site: String) {
         viewModelScope.launch {
             loadProductSearch(query, site).let { result ->
                 when (result) {
                     is LoadProductSearch.Result.Success -> data.postValue(result.items)
-                    is LoadProductSearch.Result.Error -> errorData.postValue("error")
-                    is LoadProductSearch.Result.NetworkError -> errorData.postValue("network error")
+                    is LoadProductSearch.Result.Error -> errorData.postValue(false)
+                    is LoadProductSearch.Result.NetworkError -> errorData.postValue(true)
                 }
             }
         }

@@ -74,7 +74,7 @@ class ProductItemViewModelTest {
         viewModel.loadData(productId)
 
         // then
-        viewModel.errorData.value shouldBeEqualTo "error"
+        viewModel.errorData.value shouldBeEqualTo false
     }
 
     @Test
@@ -87,7 +87,7 @@ class ProductItemViewModelTest {
         viewModel.loadData(productId)
 
         // then
-        viewModel.errorData.value shouldBeEqualTo "network error"
+        viewModel.errorData.value shouldBeEqualTo true
     }
 
     @Test
@@ -114,7 +114,7 @@ class ProductItemViewModelTest {
         viewModel.loadDescription(productId)
 
         // then
-        viewModel.errorData.value shouldBeEqualTo "error"
+        viewModel.errorData.value shouldBeEqualTo false
     }
 
     @Test
@@ -127,6 +127,6 @@ class ProductItemViewModelTest {
         viewModel.loadDescription(productId)
 
         // then
-        viewModel.errorData.value shouldBeEqualTo "network error"
+        viewModel.errorData.value shouldBeEqualTo true
     }
 }

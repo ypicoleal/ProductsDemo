@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.activity.addCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.productsdemo.R
 import com.example.productsdemo.databinding.FragmentSearchBinding
 import com.example.productsdemo.search.groupieviews.SearchItemView
 import com.xwray.groupie.GroupAdapter
@@ -54,6 +56,23 @@ class SearchFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.data.observe(viewLifecycleOwner, { items ->
             groupAdapter.update(items.map { SearchItemView(it) })
+        })
+
+        viewModel.errorData.observe(viewLifecycleOwner, { isNetworkError ->
+            AlertDialog.Builder(requireContext())
+                .setTitle(R.string.error_title)
+                .setMessage(R.string.error_description)
+                .setPositiveButton(R.string.close) { dialog, _ ->
+                    activity?.finish()
+                }.apply {
+                    if (isNetworkError) {
+                        setNegativeButton(R.string.retry) { _, _ ->
+                            viewModel.searchProducts(binding.search.text.toString(), args.siteId ?: "")
+                        }
+                    }
+                }
+                .create()
+                .show()
         })
     }
 

@@ -60,7 +60,7 @@ class ProductSearchViewModelTest {
         viewModel.searchProducts(query, site)
 
         // then
-        viewModel.errorData.value shouldBeEqualTo "error"
+        viewModel.errorData.value shouldBeEqualTo false
     }
 
     @Test
@@ -74,6 +74,6 @@ class ProductSearchViewModelTest {
         viewModel.searchProducts(query, site)
 
         // then
-        viewModel.errorData.value shouldBeEqualTo "network error"
+        viewModel.errorData.value shouldBeEqualTo true
     }
 }

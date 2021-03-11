@@ -56,7 +56,7 @@ class SiteViewModelTest {
         viewModel.getSites()
 
         // then
-        viewModel.errorData.value shouldBeEqualTo "error"
+        viewModel.errorData.value shouldBeEqualTo false
     }
 
     @Test
@@ -68,6 +68,6 @@ class SiteViewModelTest {
         viewModel.getSites()
 
         // then
-        viewModel.errorData.value shouldBeEqualTo "network error"
+        viewModel.errorData.value shouldBeEqualTo true
     }
 }
