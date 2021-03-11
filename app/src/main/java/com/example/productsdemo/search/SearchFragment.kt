@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.activity.addCallback
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.productsdemo.R
@@ -47,6 +48,7 @@ class SearchFragment : Fragment() {
         binding.search.setOnEditorActionListener { searchView, actionId, _ ->
             val site = args.siteId
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                binding.loading.isVisible = true
                 viewModel.searchProducts(searchView.text.toString(), site ?: "")
             }
             false
@@ -55,6 +57,7 @@ class SearchFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel.data.observe(viewLifecycleOwner, { items ->
+            binding.loading.isVisible = false
             groupAdapter.update(items.map { SearchItemView(it) })
         })
 

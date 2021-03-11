@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -21,7 +22,6 @@ import com.example.productsdemo.utils.formatPrice
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import org.koin.android.viewmodel.ext.android.viewModel
-
 
 class ProductItemFragment : Fragment() {
 
@@ -55,6 +55,7 @@ class ProductItemFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel.data.observe(viewLifecycleOwner, {
+            binding.loading.isVisible = false
             binding.subtitle.text = resources.getString(R.string.product_subtitle, it.condition, it.soldQuantity)
             binding.title.text = it.title
             binding.imagesCount.text = resources.getString(R.string.product_image_count, 1, it.images.size)
