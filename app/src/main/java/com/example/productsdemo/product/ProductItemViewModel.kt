@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.actions.LoadProductDescription
 import com.example.domain.actions.LoadProductItem
-import com.example.domain.model.ProductItem
+import com.example.domain.models.ProductItem
 import kotlinx.coroutines.launch
 
 class ProductItemViewModel(

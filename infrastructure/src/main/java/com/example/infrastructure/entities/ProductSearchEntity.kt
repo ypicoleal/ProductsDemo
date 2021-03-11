@@ -1,6 +1,6 @@
 package com.example.infrastructure.entities
 
-import com.example.domain.model.ProductSearchItem
+import com.example.domain.models.ProductSearchItem
 import com.google.gson.annotations.SerializedName
 
 data class ProductSearchEntity(

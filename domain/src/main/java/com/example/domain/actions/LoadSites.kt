@@ -1,7 +1,7 @@
 package com.example.domain.actions
 
-import com.example.domain.model.ResultWrapper
-import com.example.domain.model.Site
+import com.example.domain.models.ResultWrapper
+import com.example.domain.models.Site
 import com.example.domain.repositories.ProductRepository
 
 class LoadSites(private val productRepository: ProductRepository) {

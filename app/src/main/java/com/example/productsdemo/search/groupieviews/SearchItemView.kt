@@ -2,7 +2,7 @@ package com.example.productsdemo.search.groupieviews
 
 import android.view.View
 import com.bumptech.glide.Glide
-import com.example.domain.model.ProductSearchItem
+import com.example.domain.models.ProductSearchItem
 import com.example.productsdemo.R
 import com.example.productsdemo.databinding.SearchItemLayoutBinding
 import com.example.productsdemo.utils.formatPrice

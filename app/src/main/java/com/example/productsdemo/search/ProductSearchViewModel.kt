@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.actions.LoadProductSearch
-import com.example.domain.model.ProductSearchItem
+import com.example.domain.models.ProductSearchItem
 import kotlinx.coroutines.launch
 
 class ProductSearchViewModel(private val loadProductSearch: LoadProductSearch) : ViewModel() {

@@ -1,7 +1,7 @@
 package com.example.infrastructure.network
 
 import android.util.Log
-import com.example.domain.model.ResultWrapper
+import com.example.domain.models.ResultWrapper
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException

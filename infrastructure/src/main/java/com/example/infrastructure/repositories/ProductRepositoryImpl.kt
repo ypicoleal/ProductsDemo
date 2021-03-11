@@ -1,9 +1,9 @@
 package com.example.infrastructure.repositories
 
-import com.example.domain.model.ProductItem
-import com.example.domain.model.ProductSearchItem
-import com.example.domain.model.ResultWrapper
-import com.example.domain.model.Site
+import com.example.domain.models.ProductItem
+import com.example.domain.models.ProductSearchItem
+import com.example.domain.models.ResultWrapper
+import com.example.domain.models.Site
 import com.example.domain.repositories.ProductRepository
 import com.example.infrastructure.clients.ProductsClient
 import com.example.infrastructure.entities.toProductItem

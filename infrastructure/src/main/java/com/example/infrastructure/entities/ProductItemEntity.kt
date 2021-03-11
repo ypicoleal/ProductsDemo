@@ -1,8 +1,8 @@
 package com.example.infrastructure.entities
 
-import com.example.domain.model.Attribute
-import com.example.domain.model.ProductItem
-import com.example.domain.model.ProductVariation
+import com.example.domain.models.Attribute
+import com.example.domain.models.ProductItem
+import com.example.domain.models.ProductVariation
 import com.google.gson.annotations.SerializedName
 
 data class ProductItemEntity(

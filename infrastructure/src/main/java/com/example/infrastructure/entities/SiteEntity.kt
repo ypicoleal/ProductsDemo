@@ -1,6 +1,6 @@
 package com.example.infrastructure.entities
 
-import com.example.domain.model.Site
+import com.example.domain.models.Site
 import com.google.gson.annotations.SerializedName
 
 data class SiteEntity(

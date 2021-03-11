@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.actions.LoadSites
-import com.example.domain.model.Site
+import com.example.domain.models.Site
 import kotlinx.coroutines.launch
 
 class SiteViewModel(private val loadSites: LoadSites) : ViewModel() {

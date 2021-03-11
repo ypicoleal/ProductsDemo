@@ -1,7 +1,7 @@
 package com.example.productsdemo.product.groupieviews
 
 import android.view.View
-import com.example.domain.model.ProductVariation
+import com.example.domain.models.ProductVariation
 import com.example.productsdemo.R
 import com.example.productsdemo.databinding.VariationItemLayoutBinding
 import com.xwray.groupie.viewbinding.BindableItem

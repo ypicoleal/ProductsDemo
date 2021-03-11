@@ -2,7 +2,7 @@ package com.example.productsdemo.product.groupieviews
 
 import android.graphics.Color
 import android.view.View
-import com.example.domain.model.Attribute
+import com.example.domain.models.Attribute
 import com.example.productsdemo.R
 import com.example.productsdemo.databinding.PropertyItemLayoutBinding
 import com.xwray.groupie.viewbinding.BindableItem

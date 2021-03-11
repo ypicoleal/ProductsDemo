@@ -1,7 +1,7 @@
 package com.example.domain.actions
 
-import com.example.domain.model.ProductSearchItem
-import com.example.domain.model.ResultWrapper
+import com.example.domain.models.ProductSearchItem
+import com.example.domain.models.ResultWrapper
 import com.example.domain.repositories.ProductRepository
 
 class LoadProductSearch(private val productRepository: ProductRepository) {
