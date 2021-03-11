@@ -2,8 +2,10 @@ package com.example.infrastructure.clients
 
 import com.example.infrastructure.entities.ProductDescriptionEntity
 import com.example.infrastructure.entities.ProductItemEntity
+import com.example.infrastructure.entities.ProductSearchEntity
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ProductsClient {
 
@@ -12,4 +14,7 @@ interface ProductsClient {
 
     @GET("items/{id}/descriptions")
     suspend fun getProductDescription(@Path("id") id: String): List<ProductDescriptionEntity>
+
+    @GET("/sites/{site}/search")
+    suspend fun getProductSearch(@Path("site") site: String, @Query("q") query: String): ProductSearchEntity
 }

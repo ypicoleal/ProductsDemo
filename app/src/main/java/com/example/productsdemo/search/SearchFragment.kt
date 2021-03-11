@@ -5,13 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import com.example.productsdemo.databinding.FragmentSearchBinding
+import com.example.productsdemo.search.groupieviews.SearchItemView
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.GroupieViewHolder
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class SearchFragment : Fragment() {
 
+    private val viewModel: ProductSearchViewModel by viewModel()
+
     private val binding by lazy { FragmentSearchBinding.inflate(layoutInflater) }
+    private val groupAdapter = GroupAdapter<GroupieViewHolder>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,11 +30,27 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.text.setOnClickListener {
-            navigateToProduct("MCO537652200")
+        binding.items.adapter = groupAdapter
+        groupAdapter.setOnItemClickListener { item, _ ->
+            (item as? SearchItemView)?.item?.let {
+                navigateToProduct(it.id)
+            }
         }
+        setNavigation()
+        observeViewModel()
 
-        //setNavigation()
+        binding.search.setOnEditorActionListener { view, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                viewModel.searchProducts(view.text.toString(), "MCO")
+            }
+            false
+        }
+    }
+
+    private fun observeViewModel() {
+        viewModel.data.observe(viewLifecycleOwner, { items ->
+            groupAdapter.update(items.map { SearchItemView(it) })
+        })
     }
 
     private fun navigateToProduct(productId: String) {
